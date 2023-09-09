@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="testMapper">
+    <resultMap id="test" type="com.eunjin.ComputerScience.test.TestVO">
+        <result column="QUESTION_NUM" property="questionNum"/>
+        <result column="QUESTION" property="question"/>
+        <result column="ANSWER" property="answer"/>
+    </resultMap>
+
+    <select id="" resultMap="">
+    </select>
+
+</mapper>
