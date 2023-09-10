@@ -4,7 +4,9 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
@@ -23,4 +25,17 @@ public class TestController {
         model.addAttribute("question", testService.showQuestion());
         return "/content/test/test";
     }
+    
+    // 다음 문제
+    @ResponseBody
+    @PostMapping("/nextQuestion")
+    public TestVO nextQuestion(int questionNum){
+
+
+
+
+        return testService.nextQuestion(questionNum);
+    }
+
+
 }

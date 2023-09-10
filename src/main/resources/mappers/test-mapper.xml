@@ -10,8 +10,9 @@
 
     <!--랜덤 문제 보기-->
     <select id="showQuestion" resultMap="test">
-        SELECT QUESTION
-                ,ANSWER
+        SELECT QUESTION_NUM
+            , QUESTION
+            , ANSWER
         FROM IT_EXAM
         WHERE QUESTION_NUM = (
             SELECT QUESTION_NUM
@@ -21,6 +22,23 @@
             ORDER BY DBMS_RANDOM.VALUE
             )
             WHERE ROWNUM = 1 )
+    </select>
+
+    <!--다음 문제-->
+    <select id="nextQuestion" resultMap="test">
+        SELECT QUESTION_NUM
+            , QUESTION
+            , ANSWER
+        FROM IT_EXAM
+        WHERE QUESTION_NUM = (
+            SELECT QUESTION_NUM
+            FROM (
+                SELECT QUESTION_NUM
+                FROM IT_EXAM
+                WHERE QUESTION_NUM != #{questionNum}
+                ORDER BY DBMS_RANDOM.VALUE
+            )
+        WHERE ROWNUM = 1 )
     </select>
 
 </mapper>
