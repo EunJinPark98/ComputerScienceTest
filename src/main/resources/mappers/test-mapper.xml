@@ -8,7 +8,19 @@
         <result column="ANSWER" property="answer"/>
     </resultMap>
 
-    <select id="" resultMap="">
+    <!--랜덤 문제 보기-->
+    <select id="showQuestion" resultMap="test">
+        SELECT QUESTION
+                ,ANSWER
+        FROM IT_EXAM
+        WHERE QUESTION_NUM = (
+            SELECT QUESTION_NUM
+            FROM (
+            SELECT QUESTION_NUM
+            FROM IT_EXAM
+            ORDER BY DBMS_RANDOM.VALUE
+            )
+            WHERE ROWNUM = 1 )
     </select>
 
 </mapper>

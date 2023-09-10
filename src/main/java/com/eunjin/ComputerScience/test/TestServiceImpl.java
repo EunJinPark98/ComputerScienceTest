@@ -9,6 +9,8 @@ public class TestServiceImpl implements TestService{
     @Autowired
     private SqlSessionTemplate sqlSession;
 
-
-
+    @Override
+    public TestVO showQuestion() {
+        return sqlSession.selectOne("testMapper.showQuestion");
+    }
 }
