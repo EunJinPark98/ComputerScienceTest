@@ -41,4 +41,17 @@
         WHERE ROWNUM = 1 )
     </select>
 
+    <!--문제 추가-->
+    <insert id="insertQuestion">
+        INSERT INTO IT_EXAM (
+            QUESTION_NUM
+            , QUESTION
+            , ANSWER
+        ) VALUES (
+            (SELECT MAX(QUESTION_NUM)+1 FROM IT_EXAM)
+            , #{question}
+            , #{answer}
+        )
+    </insert>
+
 </mapper>

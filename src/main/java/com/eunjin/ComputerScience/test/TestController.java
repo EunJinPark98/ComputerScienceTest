@@ -33,5 +33,18 @@ public class TestController {
         return testService.nextQuestion(questionNum);
     }
 
+    // 문제 추가 페이지로
+    @GetMapping("/insertForm")
+    public String insertFrom(){
+        return "/content/admin/insert_form";
+    }
+
+    // 문제 추가
+    @PostMapping("/insertQuestion")
+    public String insertQuestion(TestVO testVO){
+        testService.insertQuestion(testVO);
+        return "redirect:/main";
+    }
+
 
 }

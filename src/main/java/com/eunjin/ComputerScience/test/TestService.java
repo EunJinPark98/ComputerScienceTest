@@ -6,4 +6,7 @@ public interface TestService {
 
     //다음 문제
     public TestVO nextQuestion(int questionNum);
+
+    //문제 추가
+    public void insertQuestion(TestVO testVO);
 }

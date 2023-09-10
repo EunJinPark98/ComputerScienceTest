@@ -18,4 +18,9 @@ public class TestServiceImpl implements TestService{
     public TestVO nextQuestion(int questionNum) {
         return sqlSession.selectOne("testMapper.nextQuestion", questionNum);
     }
+
+    @Override
+    public void insertQuestion(TestVO testVO) {
+        sqlSession.insert("testMapper.insertQuestion", testVO);
+    }
 }

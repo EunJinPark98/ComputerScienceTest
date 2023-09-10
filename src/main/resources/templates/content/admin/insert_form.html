@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{fragment/main_layout}">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <div class="row mb-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        재밌는..문제 추가
+                    </div>
+                    <div class="card-body">
+                        <form id="insertForm" action="/insertQuestion" method="post">
+                            <div class="row mb-1">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text">문제</span>
+                                        <textarea class="form-control" name="question"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text">정답</span>
+                                        <textarea class="form-control" name="answer"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary" onclick="insertConfirm()">문제 등록</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <script>
+            function insertConfirm(){
+                alert('재밌는 정처기 문제가 추가되었습니다~~~!!')
+                ocument.querySelector('#insertForm').submit();
+            }
+        </script>
+    </th:block>
+</body>
+</html>
