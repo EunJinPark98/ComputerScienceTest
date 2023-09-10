@@ -30,10 +30,6 @@ public class TestController {
     @ResponseBody
     @PostMapping("/nextQuestion")
     public TestVO nextQuestion(int questionNum){
-
-
-
-
         return testService.nextQuestion(questionNum);
     }
 

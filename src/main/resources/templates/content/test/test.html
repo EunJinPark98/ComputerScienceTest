@@ -8,20 +8,24 @@
 </head>
 <body>
     <th:block layout:fragment="content">
-        <div class="row">
+        <div class="row mb-5">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        문제
+                        아주 재밌는 문제
                     </div>
                     <div class="card-body">
                         <input id="questionNum" type="hidden" name="questionNum" th:value="${question.questionNum}">
                         <p id="question" class="card-text">[[${question.question}]]</p>
                         <h5 id="answer" class="card-title" style="display: none;">[[${question.answer}]]</h5>
-                        <a href="#" class="btn btn-primary" onclick="showAnswer()">정답보기</a>
-                        <a href="#" class="btn btn-primary" onclick="nextQuestion()">다음문제</a>
                     </div>
                   </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center testBtn">
+                <button id="answerBtn" class="btn btn-primary" onclick="showAnswer()">정답보기</button>
+                <button class="btn btn-primary" onclick="nextQuestion()">다음문제</button>
             </div>
         </div>
         <script src="/js/test.js"></script>
