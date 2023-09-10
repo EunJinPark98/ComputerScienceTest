@@ -43,7 +43,7 @@ public class TestController {
     @PostMapping("/insertQuestion")
     public String insertQuestion(TestVO testVO){
         testService.insertQuestion(testVO);
-        return "redirect:/main";
+        return "redirect:/insertForm";
     }
 
 

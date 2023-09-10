@@ -7,20 +7,32 @@
 </head>
 <body>
     <th:block th:fragment="mainHeaderFragment">
+      <style>
+        .navbar{
+          background-color: lightpink !important;
+          padding-top: 20px;
+          padding-left: 20px;
+        }
+        .navbar-brand{
+          margin-right: 50px;
+        }
+        .navbar-toggler{
+          margin-top: -10px;
+        }
+      </style>
         <div class="row">
-            <div class="col mb-3 text-center">
+            <div class="col mb-5">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
-                      <a class="navbar-brand" href="/main">재밌는..정처기 실기 CBT</a>
+                      <a class="navbar-brand fs-2 ml-3" href="/main">재밌는..정처기 실기 CBT</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
                       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
+                        <div class="navbar-nav fs-4">
                           <a class="nav-link" href="/test">문제 풀기</a>
                           <a class="nav-link" href="/insertForm">문제 추가</a>
-                          <a class="nav-link disabled" aria-disabled="true">한가해지면</a>
-                          <a class="nav-link disabled" aria-disabled="true">기능추가 해야지</a>
+                          <a class="nav-link disabled" aria-disabled="true">10/7 합격하자</a>
                         </div>
                       </div>
                     </div>
