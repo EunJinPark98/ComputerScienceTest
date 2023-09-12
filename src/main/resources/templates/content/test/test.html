@@ -8,11 +8,18 @@
 </head>
 <body>
     <th:block layout:fragment="content">
+        <style>
+            .card-header{
+                display: flex;
+                justify-content: space-between;
+            }
+        </style>
         <div class="row mb-5">
             <div class="col">
                 <div class="card">
                     <div class="card-header" style="margin-top: 8px;">
-                        재밌는..문제
+                        <div>재밌는..문제</div>
+                        <div>이 문제 그만내! <input id="showCheckbox" type="checkbox" onchange="updateShowHide()"></div> 
                     </div>
                     <div class="card-body">
                         <input id="questionNum" type="hidden" name="questionNum" th:value="${question.questionNum}">

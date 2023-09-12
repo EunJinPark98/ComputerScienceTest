@@ -6,6 +6,7 @@
         <result column="QUESTION_NUM" property="questionNum"/>
         <result column="QUESTION" property="question"/>
         <result column="ANSWER" property="answer"/>
+        <result column="SHOW_QUESTION" property="showQuestion"/>
     </resultMap>
 
     <!--랜덤 문제 보기-->
@@ -38,7 +39,8 @@
                 WHERE QUESTION_NUM != #{questionNum}
                 ORDER BY DBMS_RANDOM.VALUE
             )
-        WHERE ROWNUM = 1 )
+            WHERE ROWNUM = 1 )
+        AND SHOW_QUESTION = 'Y'
     </select>
 
     <!--문제 추가-->
@@ -53,5 +55,20 @@
             , #{answer}
         )
     </insert>
+
+    <!--문제 숨기기-->
+    <update id="updateHide">
+        UPDATE IT_EXAM
+        SET SHOW_QUESTION = 'N'
+        WHERE QUESTION_NUM = #{questionNum}
+    </update>
+
+    <!--문제 보이기-->
+    <update id="updateShow">
+        UPDATE IT_EXAM
+        SET SHOW_QUESTION = 'Y'
+        WHERE QUESTION_NUM = #{questionNum}
+    </update>
+
 
 </mapper>

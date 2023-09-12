@@ -46,5 +46,18 @@ public class TestController {
         return "redirect:/insertForm";
     }
 
+    //해당 문제 숨기기
+    @ResponseBody
+    @PostMapping("/updateHide")
+    public void updateHide(int questionNum){
+        testService.updateHide(questionNum);
+    }
+
+    //해당 문제 나타내기
+    @ResponseBody
+    @PostMapping("/updateShow")
+    public void updateShow(int questionNum){
+        testService.updateShow(questionNum);
+    }
 
 }

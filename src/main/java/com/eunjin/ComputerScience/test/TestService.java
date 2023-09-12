@@ -9,4 +9,10 @@ public interface TestService {
 
     //문제 추가
     public void insertQuestion(TestVO testVO);
+
+    //해당 문제 안 보이게
+    public void updateHide(int questionNum);
+
+    //해당 문제 보이게
+    public void updateShow(int questionNum);
 }

@@ -23,4 +23,16 @@ public class TestServiceImpl implements TestService{
     public void insertQuestion(TestVO testVO) {
         sqlSession.insert("testMapper.insertQuestion", testVO);
     }
+
+    @Override
+    public void updateHide(int questionNum) {
+        sqlSession.update("testMapper.updateHide", questionNum);
+    }
+
+    @Override
+    public void updateShow(int questionNum) {
+        sqlSession.update("testMapper.updateShow", questionNum);
+    }
+
+
 }
