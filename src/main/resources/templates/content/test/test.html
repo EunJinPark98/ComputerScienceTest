@@ -13,16 +13,20 @@
                 display: flex;
                 justify-content: space-between;
             }
+            #showCheckbox{
+                margin-top: -1px;
+                margin-left: 2px;
+            }
         </style>
         <div class="row mb-5">
             <div class="col">
                 <div class="card">
                     <div class="card-header" style="margin-top: 8px;">
                         <div>재밌는..문제</div>
-                        <div>이 문제 그만내! <input id="showCheckbox" type="checkbox" onchange="updateShowHide()"></div> 
+                        <div>이 문제 그만내! <input id="showCheckbox" class="form-check-input" type="checkbox" onchange="updateShowHide()"></div> 
                     </div>
                     <div class="card-body">
-                        <input id="questionNum" type="hidden" name="questionNum" th:value="${question.questionNum}">
+                        <input id="questionNum" type="hidden" th:value="${question.questionNum}">
                         <p id="question" class="card-text">[[${question.question}]]</p>
                         <h5 id="answer" class="card-title" style="display: none;">[[${question.answer}]]</h5>
                     </div>

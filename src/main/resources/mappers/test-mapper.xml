@@ -3,7 +3,7 @@
 
 <mapper namespace="testMapper">
     <resultMap id="test" type="com.eunjin.ComputerScience.test.TestVO">
-        <result column="QUESTION_NUM" property="questionNum"/>
+        <id column="QUESTION_NUM" property="questionNum"/>
         <result column="QUESTION" property="question"/>
         <result column="ANSWER" property="answer"/>
         <result column="SHOW_QUESTION" property="showQuestion"/>
@@ -17,12 +17,12 @@
         FROM IT_EXAM
         WHERE QUESTION_NUM = (
             SELECT QUESTION_NUM
-            FROM (
-            SELECT QUESTION_NUM
-            FROM IT_EXAM
-            ORDER BY DBMS_RANDOM.VALUE
-            )
-            WHERE ROWNUM = 1 )
+            FROM (  SELECT QUESTION_NUM
+                    FROM IT_EXAM
+                    WHERE SHOW_QUESTION = 'Y'
+                    ORDER BY DBMS_RANDOM.VALUE
+                    )
+            WHERE ROWNUM = 1)
     </select>
 
     <!--다음 문제-->
@@ -37,6 +37,7 @@
                 SELECT QUESTION_NUM
                 FROM IT_EXAM
                 WHERE QUESTION_NUM != #{questionNum}
+                AND SHOW_QUESTION = 'Y'
                 ORDER BY DBMS_RANDOM.VALUE
             )
             WHERE ROWNUM = 1 )
